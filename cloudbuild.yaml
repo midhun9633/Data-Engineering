@@ -1,0 +1,12 @@
+steps:
+  - name: 'gcr.io/cloud-builders/gcloud'
+    args:
+      - functions
+      - deploy
+      - order_event
+      - --runtime=python311
+      - --trigger-http
+      - --allow-unauthenticated
+      - --source=GCP-Data-Engineering/EcommCloudRunFunctionWithCICD
+      - --region=us-central1  # Replace with your desired region if different
+    timeout: '1600s'
